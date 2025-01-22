@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/install/debug/DSA.exe",
+      "preLaunchTask": "Build debug",
+      "windows": {
+        "args": [],
+        "stopAtEntry": false,
+        "environment": [],
+        "console": "externalTerminal"
+      },
+    },
+    {
+      "name": "Release",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/install/debug/DSA.exe",
+      "preLaunchTask": "Build release",
+      "windows": {
+        "args": [],
+        "stopAtEntry": false,
+        "environment": [],
+        "console": "externalTerminal"
+      },
+    }
+  ]
+}

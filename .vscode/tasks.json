@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build debug",
+      "type": "shell",
+      "windows": {
+        "command": "python3",
+        "args": [
+          "./script/build.py",
+          "debug"
+        ]
+      },
+      "linux": {
+        "command": "python3",
+        "args": [
+          "./script/build.py",
+          "debug"
+        ]
+      }
+    },
+    {
+      "label": "Build release",
+      "type": "shell",
+      "windows": {
+        "command": "python3",
+        "args": [
+          "./script/build.py",
+          "release"
+        ]
+      },
+      "linux": {
+        "command": "python3",
+        "args": [
+          "./script/build.py",
+          "release"
+        ]
+      }
+    }
+  ]
+}
