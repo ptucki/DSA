@@ -1,9 +1,15 @@
 
 add_executable(${PROJECT_NAME}
   main.cpp
-)
+  Examples/Examples.cpp
+  )
 
-include_directories(${PROJECT_NAME} PRIVATE .)
+include_directories(${PROJECT_NAME} PRIVATE
+  .
+  Algorithms
+  DataStructures
+  Examples
+  )
 
 install(
   TARGETS ${PROJECT_NAME}

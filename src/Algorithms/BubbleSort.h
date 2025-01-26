@@ -4,16 +4,17 @@
 #include <iterator>
 #include <algorithm>
 
-namespace Sort {
+namespace Alg::Sort {
 
 template<typename InputIt>
 void Bubble(InputIt begin, InputIt end) {
   if (std::distance(begin, end) < 2) return;
 
   for (auto i = begin; i != end;) {
+    //auto j = (i + 1);
     for (; (i + 1) != end; ++i) {
       if (*i > *(i + 1)) {
-        std::iter_swap(i, i+1);
+        std::iter_swap(i, (i + 1));
       }
     }
     end = i;
