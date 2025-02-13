@@ -2,6 +2,7 @@
 add_executable(${PROJECT_NAME}
   main.cpp
   Examples/Examples.cpp
+  Common/Utilities.cpp
   )
 
 include_directories(${PROJECT_NAME} PRIVATE

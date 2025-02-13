@@ -12,3 +12,4 @@
 ## Sorting algorithms
 
 - Bubble sort
+- Selection sort

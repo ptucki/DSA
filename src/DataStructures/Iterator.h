@@ -2,6 +2,7 @@
 #define DATA_STRUCTURES_ITERATOR_H_
 
 #include <iterator>
+#include <stdexcept>
 
 template<class T, bool Const = false>
 class Iterator {
@@ -42,11 +43,6 @@ public:
     obj.pos_ = 0;
     obj.size_ = 0;
     return *this;
-  }
-
-  void swap(Iterator& obj) {
-    std::swap(ptr_, obj.ptr_);
-    std::swap(pos_, obj.pos_);
   }
 
   decltype(auto) operator*() const {
@@ -164,13 +160,6 @@ public:
     return *(ptr_ + pos_ + pos);
   }
 
-  static int Distance(const Iterator& it1, const Iterator& it2) {
-    if (it1.ptr_ != it2.ptr_) {
-      throw std::invalid_argument("Iterators point to different containers");
-    }
-    return static_cast<int>(it2.pos_) - static_cast<int>(it1.pos_);
-  }
-
 private:
   mutable size_t pos_;
   size_t size_;
@@ -183,5 +172,15 @@ Iterator<T, Const>& operator+(int distance, Iterator<T, Const>& it) {
   return it;
 }
 
+template<typename InputIt>
+int Distance(InputIt first, const InputIt last) {
+  return last - first;
+}
+
+template<typename ForwardIt1, typename ForwardIt2>
+void IteratorSwap(ForwardIt1 a, ForwardIt2 b) {
+  using std::swap;
+  swap(*a, *b);
+}
 
 #endif // !DATA_STRUCTURES_ITERATOR_H_

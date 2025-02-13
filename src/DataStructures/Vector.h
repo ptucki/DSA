@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <utility>
+#include <initializer_list>
 
 #include "Iterator.h"
 
@@ -30,6 +31,7 @@ class Vector {
 public:
 
   Vector();
+  Vector(std::initializer_list<T> values);
   ~Vector();
 
   template<class U = T>
@@ -67,8 +69,26 @@ Vector<T, Allocator>::Vector()
   , size_{ kInitialSize }
   , data_{ std::allocator_traits<Allocator>::allocate(
       allocator_,
-      kInitialCapacity)
-    } {}
+      kInitialCapacity
+    )} {}
+
+template<class T, class Allocator>
+Vector<T, Allocator>::Vector(std::initializer_list<T> values)
+  : allocator_{}
+  , capacity_{ values.size() }
+  , size_{ values.size() }
+  , data_{ std::allocator_traits<Allocator>::allocate(
+    allocator_,
+    values.size()
+  )}
+{
+  auto it = begin();
+  for (auto& value : values) {
+    std::allocator_traits<Allocator>::construct(
+      allocator_, &(*it), std::move(value));
+    it++;
+  }
+}
 
 template<class T, class Allocator>
 Vector<T, Allocator>::~Vector() {
