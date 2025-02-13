@@ -3,17 +3,12 @@
 #include <iostream>
 #include "BubbleSort.h"
 #include "SelectionSort.h"
+#include "InsertionSort.h"
 #include "Common.h"
 #include "Vector.h"
 
 void Example::BubbleSort() {
-  Ds::Vector<int> vec;
-
-  vec.PushBack(24);
-  vec.PushBack(23);
-  vec.PushBack(41);
-  vec.PushBack(21);
-  vec.PushBack(12);
+  auto vec = Util::GetExampleVector();
 
   Print(vec);
 
@@ -29,6 +24,16 @@ void Example::SelectionSort() {
   Print(vec);
 
   Alg::Sort::Selection(vec.begin(), vec.end());
+
+  Print(vec);
+}
+
+void Example::InsertionSort() {
+  auto vec = Util::GetExampleVector();
+
+  Print(vec);
+
+  Alg::Sort::Insertion(vec.begin(), vec.end());
 
   Print(vec);
 }

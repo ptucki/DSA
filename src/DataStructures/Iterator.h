@@ -68,7 +68,7 @@ public:
     }
   }
 
-  Iterator operator++() const {
+  Iterator operator++() {
     if (pos_ == size_) {
       throw std::overflow_error("It's end iterator");
     }
@@ -85,7 +85,7 @@ public:
     return current;
   }
 
-  Iterator& operator--() const {
+  Iterator& operator--() {
     if (pos_ == 0) {
       throw std::overflow_error("It's begin iterator");
     }

@@ -5,6 +5,7 @@ namespace Example
 {
   void BubbleSort();
   void SelectionSort();
+  void InsertionSort();
 }
 
 #endif // !EXAMPLES_H_
